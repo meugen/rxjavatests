@@ -4,6 +4,8 @@
 
 # An example controller showing a sample home page
 GET     /                    @ua.meugen.rxjavatests.server.controllers.HomeController.index
+# Rest Api
+GET     /rs/data/with/delay  @ua.meugen.rxjavatests.server.controllers.RestController.dataWithDelay(r: ua.meugen.rxjavatests.server.requests.DataWithDelayRequest)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file        @controllers.Assets.versioned(path="/public", file: Asset)

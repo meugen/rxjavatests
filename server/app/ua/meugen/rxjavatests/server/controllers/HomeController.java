@@ -1,5 +1,6 @@
 package ua.meugen.rxjavatests.server.controllers;
 
+import com.google.inject.Singleton;
 import play.mvc.*;
 
 import views.html.*;
@@ -8,6 +9,7 @@ import views.html.*;
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
+@Singleton
 public class HomeController extends Controller {
 
     /**
