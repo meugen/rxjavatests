@@ -1,4 +1,4 @@
-package controllers;
+package ua.meugen.rxjavatests.server.controllers;
 
 import play.mvc.*;
 
