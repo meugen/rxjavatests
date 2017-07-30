@@ -12,6 +12,52 @@ buildscript {
     }
 }
 
+ext {
+    support_package = 'com.android.support'
+    constraint_package = "${support_package}.constraint"
+    mosby_package = 'com.hannesdorfmann.mosby3'
+    retrofit_package = 'com.squareup.retrofit2'
+    rxandroid_package = 'io.reactivex'
+    dagger_package = 'com.google.dagger'
+    okhttp_package = 'com.squareup.okhttp3'
+
+    support_version = '25.3.1'
+    constraint_version = '1.0.2'
+    mosby_version = '3.0.4'
+    retrofit_version = '2.3.0'
+    rxandroid_version = '1.2.1'
+    dagger_version = '2.11'
+    okhttp_version = '3.8.0'
+
+    support = [
+            appcompat: "$support_package:appcompat-v7:$support_version",
+            constraint: "$constraint_package:constraint-layout:$constraint_version"
+    ]
+
+    mosby = [
+            mvp: "$mosby_package:mvp:$mosby_version",
+            viewstate: "$mosby_package:viewstate:$mosby_version"
+    ]
+
+    retrofit = [
+            core: "$retrofit_package:retrofit:$retrofit_version",
+            converter: "$retrofit_package:converter-gson:$retrofit_version",
+            rxjava: "$retrofit_package:adapter-rxjava:$retrofit_version"
+    ]
+
+    rxandroid = "$rxandroid_package:rxandroid:$rxandroid_version"
+
+    dagger = [
+            core: "$dagger_package:dagger:$dagger_version",
+            compiler: "$dagger_package:dagger-compiler:$dagger_version"
+    ]
+
+    okhttp = [
+            core: "$okhttp_package:okhttp:$okhttp_version",
+            logging: "$okhttp_package:logging-interceptor:$okhttp_version"
+    ]
+}
+
 allprojects {
     repositories {
         jcenter()
