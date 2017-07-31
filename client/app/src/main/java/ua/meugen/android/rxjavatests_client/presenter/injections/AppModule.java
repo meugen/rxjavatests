@@ -1,7 +1,5 @@
 package ua.meugen.android.rxjavatests_client.presenter.injections;
 
-import android.content.Context;
-
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -12,13 +10,15 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ua.meugen.android.rxjavatests_client.BuildConfig;
-import ua.meugen.android.rxjavatests_client.model.rest.Api;
+import ua.meugen.android.rxjavatests_client.presenter.rest.RestApi;
 
 /**
  * @author meugen
  */
 @Module
 public class AppModule {
+
+    private static final String API_BASE_URL = "http://restapi.meugen.in.ua/";
 
     @Provides @Singleton
     public OkHttpClient provideOkHttp() {
@@ -34,6 +34,7 @@ public class AppModule {
     @Provides @Singleton
     public Retrofit provideRetrofit(final OkHttpClient client) {
         return new Retrofit.Builder()
+                .baseUrl(API_BASE_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
@@ -41,7 +42,7 @@ public class AppModule {
     }
 
     @Provides @Singleton
-    public Api provideApi(final Retrofit retrofit) {
-        return retrofit.create(Api.class);
+    public RestApi provideApi(final Retrofit retrofit) {
+        return retrofit.create(RestApi.class);
     }
 }

@@ -1,4 +1,4 @@
-package ua.meugen.android.rxjavatests_client.model.rest;
+package ua.meugen.android.rxjavatests_client.presenter.rest;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -9,7 +9,7 @@ import ua.meugen.android.rxjavatests_client.model.responses.DataResponse;
  * @author meugen
  */
 
-public interface Api {
+public interface RestApi {
 
     @GET("/rs/data/with/delay")
     Observable<DataResponse> dataWithDelay(

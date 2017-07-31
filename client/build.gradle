@@ -6,6 +6,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -20,6 +21,7 @@ ext {
     rxandroid_package = 'io.reactivex'
     dagger_package = 'com.google.dagger'
     okhttp_package = 'com.squareup.okhttp3'
+    butterknife_package = 'com.jakewharton'
 
     support_version = '25.3.1'
     constraint_version = '1.0.2'
@@ -28,10 +30,12 @@ ext {
     rxandroid_version = '1.2.1'
     dagger_version = '2.11'
     okhttp_version = '3.8.0'
+    butterknife_version = '8.7.0'
 
     support = [
             appcompat: "$support_package:appcompat-v7:$support_version",
-            constraint: "$constraint_package:constraint-layout:$constraint_version"
+            constraint: "$constraint_package:constraint-layout:$constraint_version",
+            recyclerview: "$support_package:recyclerview-v7:$support_version"
     ]
 
     mosby = [
@@ -55,6 +59,11 @@ ext {
     okhttp = [
             core: "$okhttp_package:okhttp:$okhttp_version",
             logging: "$okhttp_package:logging-interceptor:$okhttp_version"
+    ]
+
+    butterknife = [
+            core: "$butterknife_package:butterknife:$butterknife_version",
+            compiler: "$butterknife_package:butterknife-compiler:$butterknife_version"
     ]
 }
 
