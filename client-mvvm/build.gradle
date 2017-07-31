@@ -1,0 +1,78 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+ext {
+    support_package = 'com.android.support'
+    constraint_package = "${support_package}.constraint"
+    mosby_package = 'com.hannesdorfmann.mosby3'
+    retrofit_package = 'com.squareup.retrofit2'
+    rxandroid_package = 'io.reactivex'
+    dagger_package = 'com.google.dagger'
+    okhttp_package = 'com.squareup.okhttp3'
+    butterknife_package = 'com.jakewharton'
+
+    support_version = '25.3.1'
+    constraint_version = '1.0.2'
+    mosby_version = '3.0.4'
+    retrofit_version = '2.3.0'
+    rxandroid_version = '1.2.1'
+    dagger_version = '2.11'
+    okhttp_version = '3.8.0'
+    butterknife_version = '8.7.0'
+
+    support = [
+            appcompat: "$support_package:appcompat-v7:$support_version",
+            constraint: "$constraint_package:constraint-layout:$constraint_version",
+            recyclerview: "$support_package:recyclerview-v7:$support_version"
+    ]
+
+    mosby = [
+            mvp: "$mosby_package:mvp:$mosby_version",
+            viewstate: "$mosby_package:viewstate:$mosby_version"
+    ]
+
+    retrofit = [
+            core: "$retrofit_package:retrofit:$retrofit_version",
+            converter: "$retrofit_package:converter-gson:$retrofit_version",
+            rxjava: "$retrofit_package:adapter-rxjava:$retrofit_version"
+    ]
+
+    rxandroid = "$rxandroid_package:rxandroid:$rxandroid_version"
+
+    dagger = [
+            core: "$dagger_package:dagger:$dagger_version",
+            compiler: "$dagger_package:dagger-compiler:$dagger_version"
+    ]
+
+    okhttp = [
+            core: "$okhttp_package:okhttp:$okhttp_version",
+            logging: "$okhttp_package:logging-interceptor:$okhttp_version"
+    ]
+
+    butterknife = [
+            core: "$butterknife_package:butterknife:$butterknife_version",
+            compiler: "$butterknife_package:butterknife-compiler:$butterknife_version"
+    ]
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
