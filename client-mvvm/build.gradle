@@ -38,11 +38,6 @@ ext {
             recyclerview: "$support_package:recyclerview-v7:$support_version"
     ]
 
-    mosby = [
-            mvp: "$mosby_package:mvp:$mosby_version",
-            viewstate: "$mosby_package:viewstate:$mosby_version"
-    ]
-
     retrofit = [
             core: "$retrofit_package:retrofit:$retrofit_version",
             converter: "$retrofit_package:converter-gson:$retrofit_version",
@@ -59,11 +54,6 @@ ext {
     okhttp = [
             core: "$okhttp_package:okhttp:$okhttp_version",
             logging: "$okhttp_package:logging-interceptor:$okhttp_version"
-    ]
-
-    butterknife = [
-            core: "$butterknife_package:butterknife:$butterknife_version",
-            compiler: "$butterknife_package:butterknife-compiler:$butterknife_version"
     ]
 }
 

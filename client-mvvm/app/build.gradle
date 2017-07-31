@@ -22,6 +22,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -34,9 +38,6 @@ dependencies {
     compile support.constraint
     compile support.recyclerview
 
-    compile mosby.mvp
-    compile mosby.viewstate
-
     compile okhttp.core
     compile okhttp.logging
 
@@ -48,8 +49,5 @@ dependencies {
 
     compile dagger.core
     annotationProcessor dagger.compiler
-
-    compile butterknife.core
-    annotationProcessor butterknife.compiler
 
 }

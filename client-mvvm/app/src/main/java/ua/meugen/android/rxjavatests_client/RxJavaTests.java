@@ -3,8 +3,9 @@ package ua.meugen.android.rxjavatests_client;
 import android.app.Application;
 import android.content.Context;
 
-import ua.meugen.android.rxjavatests_client.presenter.injections.AppComponent;
-import ua.meugen.android.rxjavatests_client.presenter.injections.DaggerAppComponent;
+import ua.meugen.android.rxjavatests_client.viewmodel.injections.AppComponent;
+import ua.meugen.android.rxjavatests_client.viewmodel.injections.AppModule;
+import ua.meugen.android.rxjavatests_client.viewmodel.injections.DaggerAppComponent;
 
 /**
  * @author meugen
@@ -25,7 +26,9 @@ public class RxJavaTests extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        appComponent = DaggerAppComponent.create();
+        appComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .build();
     }
 
     public AppComponent getAppComponent() {

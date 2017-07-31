@@ -1,4 +1,6 @@
-package ua.meugen.android.rxjavatests_client.presenter.injections;
+package ua.meugen.android.rxjavatests_client.viewmodel.injections;
+
+import android.content.Context;
 
 import javax.inject.Singleton;
 
@@ -10,7 +12,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ua.meugen.android.rxjavatests_client.BuildConfig;
-import ua.meugen.android.rxjavatests_client.presenter.rest.RestApi;
+import ua.meugen.android.rxjavatests_client.viewmodel.rest.RestApi;
 
 /**
  * @author meugen
@@ -19,6 +21,17 @@ import ua.meugen.android.rxjavatests_client.presenter.rest.RestApi;
 public class AppModule {
 
     private static final String API_BASE_URL = "http://restapi.meugen.in.ua/";
+
+    private final Context context;
+
+    public AppModule(final Context context) {
+        this.context = context;
+    }
+
+    @Provides @Singleton
+    public Context provideContext() {
+        return context;
+    }
 
     @Provides @Singleton
     public OkHttpClient provideOkHttp() {

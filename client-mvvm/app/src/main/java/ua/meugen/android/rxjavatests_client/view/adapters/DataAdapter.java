@@ -10,10 +10,6 @@ import android.widget.TextView;
 import java.util.Collections;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder> {
 
     private final LayoutInflater inflater;
@@ -47,11 +43,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
 
     public static class DataViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(android.R.id.text1) TextView textView;
+        private TextView textView;
 
         public DataViewHolder(final View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            textView = (TextView) itemView.findViewById(android.R.id.text1);
         }
 
         public void bind(final String item) {

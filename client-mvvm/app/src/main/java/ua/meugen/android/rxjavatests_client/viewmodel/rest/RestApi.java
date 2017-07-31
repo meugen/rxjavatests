@@ -1,4 +1,4 @@
-package ua.meugen.android.rxjavatests_client.presenter.rest;
+package ua.meugen.android.rxjavatests_client.viewmodel.rest;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
