@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+// apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 25
@@ -18,10 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+}
+
+kapt {
+    generateStubs = true
 }
 
 dependencies {
@@ -47,9 +49,11 @@ dependencies {
     compile rxandroid
 
     compile dagger.core
-    annotationProcessor dagger.compiler
+    kapt dagger.compiler
 
-    compile butterknife.core
-    annotationProcessor butterknife.compiler
+    compile kotlinlibs.stdlib
 
+}
+repositories {
+    mavenCentral()
 }

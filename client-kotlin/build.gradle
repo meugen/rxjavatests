@@ -1,12 +1,15 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext.kotlin_version = '1.1.2-3'
+    ext.kotlin_package = 'org.jetbrains.kotlin'
     repositories {
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+        // classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+        classpath "$kotlin_package:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -14,6 +17,7 @@ buildscript {
 }
 
 ext {
+    // Packages
     support_package = 'com.android.support'
     constraint_package = "${support_package}.constraint"
     mosby_package = 'com.hannesdorfmann.mosby3'
@@ -21,8 +25,8 @@ ext {
     rxandroid_package = 'io.reactivex'
     dagger_package = 'com.google.dagger'
     okhttp_package = 'com.squareup.okhttp3'
-    butterknife_package = 'com.jakewharton'
 
+    // Versions
     support_version = '25.3.1'
     constraint_version = '1.0.2'
     mosby_version = '3.0.4'
@@ -30,7 +34,6 @@ ext {
     rxandroid_version = '1.2.1'
     dagger_version = '2.11'
     okhttp_version = '3.8.0'
-    butterknife_version = '8.7.0'
 
     support = [
             appcompat: "$support_package:appcompat-v7:$support_version",
@@ -61,9 +64,8 @@ ext {
             logging: "$okhttp_package:logging-interceptor:$okhttp_version"
     ]
 
-    butterknife = [
-            core: "$butterknife_package:butterknife:$butterknife_version",
-            compiler: "$butterknife_package:butterknife-compiler:$butterknife_version"
+    kotlinlibs = [
+            stdlib: "$kotlin_package:kotlin-stdlib-jre7:$kotlin_version"
     ]
 }
 
