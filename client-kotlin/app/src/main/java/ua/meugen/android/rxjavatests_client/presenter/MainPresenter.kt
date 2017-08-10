@@ -1,16 +1,13 @@
 package ua.meugen.android.rxjavatests_client.presenter
 
 import android.util.Log
-
 import com.hannesdorfmann.mosby3.mvp.MvpPresenter
-
-import javax.inject.Inject
-
 import rx.Observable
 import rx.subscriptions.CompositeSubscription
 import ua.meugen.android.rxjavatests_client.model.DataResponse
 import ua.meugen.android.rxjavatests_client.presenter.rest.ModelApi
 import ua.meugen.android.rxjavatests_client.view.MainView
+import javax.inject.Inject
 
 /**
  * @author meugen

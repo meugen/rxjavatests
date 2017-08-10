@@ -2,7 +2,6 @@ package ua.meugen.android.rxjavatests_client
 
 import android.app.Application
 import android.content.Context
-
 import ua.meugen.android.rxjavatests_client.presenter.injections.AppComponent
 import ua.meugen.android.rxjavatests_client.presenter.injections.DaggerAppComponent
 
@@ -19,15 +18,8 @@ class RxJavaTests : Application() {
         super.onCreate()
         appComponent = DaggerAppComponent.create()
     }
-
-    companion object {
-
-        fun from(context: Context): RxJavaTests {
-            return context.applicationContext as RxJavaTests
-        }
-
-        fun appComponent(context: Context): AppComponent {
-            return from(context).appComponent
-        }
-    }
 }
+
+fun Context.aqosta() = applicationContext as RxJavaTests
+
+fun Context.appComponent() = aqosta().appComponent

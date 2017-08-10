@@ -1,7 +1,5 @@
 package ua.meugen.android.rxjavatests_client.presenter.injections
 
-import javax.inject.Singleton
-
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -11,6 +9,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import ua.meugen.android.rxjavatests_client.BuildConfig
 import ua.meugen.android.rxjavatests_client.presenter.rest.RestApi
+import javax.inject.Singleton
 
 /**
  * @author meugen
