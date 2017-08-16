@@ -18,7 +18,7 @@ ext {
     constraint_package = "${support_package}.constraint"
     mosby_package = 'com.hannesdorfmann.mosby3'
     retrofit_package = 'com.squareup.retrofit2'
-    rxandroid_package = 'io.reactivex'
+    rxjava_package = 'io.reactivex.rxjava2'
     dagger_package = 'com.google.dagger'
     okhttp_package = 'com.squareup.okhttp3'
     butterknife_package = 'com.jakewharton'
@@ -27,7 +27,6 @@ ext {
     constraint_version = '1.0.2'
     mosby_version = '3.0.4'
     retrofit_version = '2.3.0'
-    rxandroid_version = '1.2.1'
     dagger_version = '2.11'
     okhttp_version = '3.8.0'
     butterknife_version = '8.7.0'
@@ -41,10 +40,13 @@ ext {
     retrofit = [
             core: "$retrofit_package:retrofit:$retrofit_version",
             converter: "$retrofit_package:converter-gson:$retrofit_version",
-            rxjava: "$retrofit_package:adapter-rxjava:$retrofit_version"
+            rxjava: "$retrofit_package:adapter-rxjava2:$retrofit_version"
     ]
 
-    rxandroid = "$rxandroid_package:rxandroid:$rxandroid_version"
+    rx = [
+            java: "$rxjava_package:rxjava:2.1.2",
+            android: "$rxjava_package:rxandroid:2.0.1"
+    ]
 
     dagger = [
             core: "$dagger_package:dagger:$dagger_version",

@@ -1,8 +1,8 @@
 package ua.meugen.android.rxjavatests_client.viewmodel.rest;
 
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
-import rx.Observable;
 import ua.meugen.android.rxjavatests_client.model.responses.DataResponse;
 
 /**

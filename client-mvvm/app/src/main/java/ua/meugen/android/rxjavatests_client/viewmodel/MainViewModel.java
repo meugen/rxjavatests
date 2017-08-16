@@ -6,13 +6,15 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
 
+import org.reactivestreams.Subscription;
+
 import java.util.List;
 
 import javax.inject.Inject;
 
-import rx.Observable;
-import rx.Subscription;
-import rx.subscriptions.CompositeSubscription;
+import io.reactivex.Observable;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import ua.meugen.android.rxjavatests_client.model.responses.DataResponse;
 import ua.meugen.android.rxjavatests_client.view.adapters.DataAdapter;
 import ua.meugen.android.rxjavatests_client.viewmodel.rest.ModelApi;
@@ -37,19 +39,19 @@ public class MainViewModel
 
     private final ModelApi modelApi;
 
-    private CompositeSubscription compositeSubscription;
+    private CompositeDisposable compositeDisposable;
 
     @Inject
     public MainViewModel(final Context context, final ModelApi modelApi) {
         this.modelApi = modelApi;
         this.adapter = new DataAdapter(context);
-        this.compositeSubscription = new CompositeSubscription();
+        this.compositeDisposable = new CompositeDisposable();
     }
 
     public void reset() {
-        if (compositeSubscription != null) {
-            compositeSubscription.unsubscribe();
-            compositeSubscription = null;
+        if (compositeDisposable != null) {
+            compositeDisposable.dispose();
+            compositeDisposable = null;
         }
     }
 
@@ -76,9 +78,9 @@ public class MainViewModel
         if (reload || observable == null) {
             observable = modelApi.dataWithDelay(DELAY, COUNT);
         }
-        Subscription subscription = observable
+        Disposable disposable = observable
                 .subscribe(this::onDataSucess, this::onDataError);
-        compositeSubscription.add(subscription);
+        compositeDisposable.add(disposable);
     }
 
     public void onDataError(final Throwable e) {

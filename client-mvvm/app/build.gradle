@@ -45,7 +45,8 @@ dependencies {
     compile retrofit.converter
     compile retrofit.rxjava
 
-    compile rxandroid
+    compile rx.java
+    compile rx.android
 
     compile dagger.core
     annotationProcessor dagger.compiler
