@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class DataWithDelayResponse {
+public class DataResponse {
 
     private List<String> data;
 
-    public DataWithDelayResponse() {}
+    public DataResponse() {}
 
-    public DataWithDelayResponse(final Random rand, final int count) {
+    public DataResponse(final Random rand, final int count) {
         data = new ArrayList<>(count);
         for (int i = 0; i < count; i++) {
             data.add(new BigInteger(100, rand).toString(26));
