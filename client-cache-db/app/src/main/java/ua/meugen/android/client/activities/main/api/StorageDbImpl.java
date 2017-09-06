@@ -56,6 +56,7 @@ public class StorageDbImpl implements StorageDb {
             if (cursor != null) {
                 cursor.close();
             }
+            db.close();
         }
     }
 }
