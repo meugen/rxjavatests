@@ -38,7 +38,7 @@ public class StorageApiImpl implements StorageApi {
 
     @Override
     public Observable<List<String>> storage(final int id) {
-        return Observable.just(storageDb.loadItems())
+        return Observable.fromCallable(storageDb::loadItems)
                 .flatMap(data -> requestApi(id, data));
     }
 
