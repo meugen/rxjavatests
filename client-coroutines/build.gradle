@@ -21,7 +21,8 @@ buildscript {
         libs = [
                 support: [
                         appcompat: "$support_package:appcompat-v7:$support_version",
-                        constraint: "${support_package}.constraint:constraint-layout:1.0.2"
+                        constraint: "${support_package}.constraint:constraint-layout:1.0.2",
+                        recyclerview: "$support_package:recyclerview-v7:$support_version"
                 ],
 
                 kotlin: [

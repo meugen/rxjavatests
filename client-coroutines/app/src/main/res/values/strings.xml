@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">client-coroutines</string>
+
+    <string name="tools_item_value">Item</string>
 </resources>

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
@@ -22,14 +22,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled true
+    }
 }
 
 dependencies {
+    kapt 'com.android.databinding:compiler:3.0.1'
+
     implementation libs.kotlin.stdlib
     implementation libs.kotlinx.coroutines
 
     implementation libs.support.appcompat
     implementation libs.support.constraint
+    implementation libs.support.recyclerview
 
     implementation libs.retrofit.core
     implementation libs.retrofit.converter.gson
@@ -38,9 +44,9 @@ dependencies {
     implementation libs.okhttp.logging
 
     implementation libs.dagger.core
-    annotationProcessor libs.dagger.compiler
+    kapt libs.dagger.compiler
     implementation libs.dagger.android.core
-    annotationProcessor libs.dagger.android.processor
+    kapt libs.dagger.android.processor
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
