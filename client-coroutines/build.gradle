@@ -1,14 +1,70 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.1.51'
+    ext {
+        support_package = 'com.android.support'
+        kotlin_package = 'org.jetbrains.kotlin'
+        kotlinx_package = 'org.jetbrains.kotlinx'
+        retrofit_package = 'com.squareup.retrofit2'
+        okhttp_package = 'com.squareup.okhttp3'
+        dagger_package = 'com.google.dagger'
+        gson_package = 'com.google.code.gson'
+
+        support_version = '26.1.0'
+        kotlin_version = '1.1.51'
+        coroutines_version = '0.21'
+        retrofit_version = '2.3.0'
+        okhttp_version = '3.9.1'
+        dagger_version = '2.14.1'
+        gson_version = '2.8.2'
+
+        libs = [
+                support: [
+                        appcompat: "$support_package:appcompat-v7:$support_version",
+                        constraint: "${support_package}.constraint:constraint-layout:1.0.2"
+                ],
+
+                kotlin: [
+                        plugin: "$kotlin_package:kotlin-gradle-plugin:$kotlin_version",
+                        stdlib: "$kotlin_package:kotlin-stdlib-jre7:$kotlin_version"
+                ],
+
+                kotlinx: [
+                        coroutines: "$kotlinx_package:kotlinx-coroutines-android:$coroutines_version"
+                ],
+
+                retrofit: [
+                        core: "$retrofit_package:retrofit:$retrofit_version",
+                        converter: [
+                                gson: "$retrofit_package:converter-gson:$retrofit_version"
+                        ]
+                ],
+
+                okhttp: [
+                        core: "$okhttp_package:okhttp:$okhttp_version",
+                        logging: "$okhttp_package:logging-interceptor:$okhttp_version"
+                ],
+
+                dagger: [
+                        core: "$dagger_package:dagger:$dagger_version",
+                        compiler: "$dagger_package:dagger-compiler:$dagger_version",
+                        android: [
+                                core: "$dagger_package:dagger-android-support:$dagger_version",
+                                processor: "$dagger_package:dagger-android-processor:$dagger_version"
+                        ]
+                ],
+
+                gson: "$gson_package:gson:$gson_version"
+        ]
+    }
+
     repositories {
         google()
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath libs.kotlin.plugin
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
