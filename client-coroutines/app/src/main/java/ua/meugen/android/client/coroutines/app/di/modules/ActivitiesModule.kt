@@ -9,7 +9,7 @@ import ua.meugen.android.client.coroutines.ui.activities.main.MainActivityModule
 @Module
 abstract class ActivitiesModule {
 
-    @ContributesAndroidInjector(modules = arrayOf(MainActivityModule::class))
+    @ContributesAndroidInjector(modules = [MainActivityModule::class])
     @PerActivity
     abstract fun contributeMainActivity(): MainActivity
 }

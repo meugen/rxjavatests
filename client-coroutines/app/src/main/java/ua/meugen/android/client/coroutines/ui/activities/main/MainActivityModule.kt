@@ -10,13 +10,13 @@ import ua.meugen.android.client.coroutines.ui.activities.base.BaseActivityModule
 import ua.meugen.android.client.coroutines.ui.activities.main.fragment.MainFragment
 import ua.meugen.android.client.coroutines.ui.activities.main.fragment.MainFragmentModule
 
-@Module(includes = arrayOf(BaseActivityModule::class))
+@Module(includes = [BaseActivityModule::class])
 abstract class MainActivityModule {
 
     @Binds @PerActivity
     abstract fun bindActivity(activity: MainActivity): AppCompatActivity
 
-    @ContributesAndroidInjector(modules = arrayOf(MainFragmentModule::class))
+    @ContributesAndroidInjector(modules = [MainFragmentModule::class])
     @PerFragment
     abstract fun contributeMainFragment(): MainFragment
 }

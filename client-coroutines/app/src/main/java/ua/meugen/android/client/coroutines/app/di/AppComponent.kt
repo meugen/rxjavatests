@@ -7,7 +7,7 @@ import ua.meugen.android.client.coroutines.app.di.modules.AppModule
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(AppModule::class))
+@Component(modules = [AppModule::class])
 interface AppComponent: AndroidInjector<ClientCoroutines> {
 
     @Component.Builder

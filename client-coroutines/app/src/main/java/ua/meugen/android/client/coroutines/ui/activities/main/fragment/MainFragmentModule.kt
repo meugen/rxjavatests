@@ -11,7 +11,7 @@ import ua.meugen.android.client.coroutines.ui.activities.main.fragment.presenter
 import ua.meugen.android.client.coroutines.ui.activities.main.fragment.presenter.MainPresenterImpl
 import ua.meugen.android.client.coroutines.ui.activities.main.fragment.view.MainView
 
-@Module(includes = arrayOf(BaseFragmentModule::class))
+@Module(includes = [BaseFragmentModule::class])
 abstract class MainFragmentModule {
 
     @Binds @PerFragment

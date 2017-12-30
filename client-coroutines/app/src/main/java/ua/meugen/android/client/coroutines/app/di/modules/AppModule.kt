@@ -16,8 +16,8 @@ import javax.inject.Singleton
 
 const val APP_CONTEXT = "appContext"
 
-@Module(includes = arrayOf(AndroidSupportInjectionModule::class,
-        NetworkModule::class, ActivitiesModule::class))
+@Module(includes = [AndroidSupportInjectionModule::class,
+        NetworkModule::class, ActivitiesModule::class])
 abstract class AppModule {
 
     @Binds @Singleton

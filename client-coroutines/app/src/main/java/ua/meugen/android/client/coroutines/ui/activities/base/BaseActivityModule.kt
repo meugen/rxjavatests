@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import dagger.Binds
 import dagger.Module
 import ua.meugen.android.client.coroutines.app.di.PerActivity
+import ua.meugen.android.client.coroutines.ui.lifecycle.LifecycleHandler
+import ua.meugen.android.client.coroutines.ui.lifecycle.LoaderLifecycleHandler
 import javax.inject.Named
 
 const val ACTIVITY_CONTEXT = "activityContext"

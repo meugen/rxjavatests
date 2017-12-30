@@ -11,7 +11,7 @@ buildscript {
         gson_package = 'com.google.code.gson'
 
         support_version = '26.1.0'
-        kotlin_version = '1.1.51'
+        kotlin_version = '1.2.10'
         coroutines_version = '0.21'
         retrofit_version = '2.3.0'
         okhttp_version = '3.9.1'

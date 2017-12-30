@@ -8,6 +8,7 @@ import ua.meugen.android.client.coroutines.model.awaits.await
 import ua.meugen.android.client.coroutines.ui.activities.base.fragment.presenter.BasePresenter
 import ua.meugen.android.client.coroutines.ui.activities.base.fragment.state.MvpState
 import ua.meugen.android.client.coroutines.ui.activities.main.fragment.view.MainView
+import ua.meugen.android.client.coroutines.ui.lifecycle.LifecycleHandler
 import javax.inject.Inject
 
 class MainPresenterImpl @Inject constructor(): BasePresenter<MvpState>(), MainPresenter {
@@ -21,10 +22,13 @@ class MainPresenterImpl @Inject constructor(): BasePresenter<MvpState>(), MainPr
 
     @Inject lateinit var view: MainView
     @Inject lateinit var serverApi: ServerApi
+    @Inject lateinit var lifecycleHandler: LifecycleHandler
 
     override fun load() {
         launch(job + UI) {
-            val response = serverApi.storageWithDelay(ID, DELAY).await()
+            val response = lifecycleHandler.load(0) {
+                serverApi.storageWithDelay(ID, DELAY).await()
+            }
             view.displayItems(response.data)
         }
     }
