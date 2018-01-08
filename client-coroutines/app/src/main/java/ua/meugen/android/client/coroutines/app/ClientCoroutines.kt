@@ -5,6 +5,7 @@ import android.app.Application
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import kotlinx.coroutines.experimental.launch
 import ua.meugen.android.client.coroutines.app.di.DaggerAppComponent
 import javax.inject.Inject
 
@@ -15,6 +16,7 @@ class ClientCoroutines : Application(), HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
 
+        launch {  }
         DaggerAppComponent.builder()
                 .create(this)
                 .inject(this)
