@@ -1,6 +1,5 @@
 package ua.in.meugen.myapplication.ui.activities.main;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import ua.in.meugen.myapplication.R;

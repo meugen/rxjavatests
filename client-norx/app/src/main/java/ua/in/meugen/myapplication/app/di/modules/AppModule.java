@@ -9,7 +9,6 @@ import java.util.concurrent.Executors;
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
-import dagger.android.support.AndroidSupportInjectionModule;
 import ua.in.meugen.myapplication.app.MyApp;
 import ua.in.meugen.myapplication.app.di.qualifiers.AppContext;
 import ua.in.meugen.myapplication.app.di.scopes.PerApplication;

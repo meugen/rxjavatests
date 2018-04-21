@@ -1,5 +1,6 @@
 package ua.in.meugen.myapplication.ui.activities.main.fragment;
 
+import android.arch.lifecycle.ViewModelProvider;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,7 +12,7 @@ import android.view.ViewGroup;
 
 import javax.inject.Inject;
 
-import timber.log.Timber;
+import dagger.Lazy;
 import ua.in.meugen.myapplication.app.di.qualifiers.ActivityContext;
 import ua.in.meugen.myapplication.databinding.FragmentMainBinding;
 import ua.in.meugen.myapplication.model.network.Resource;
@@ -24,16 +25,11 @@ import ua.in.meugen.myapplication.ui.activities.main.fragment.vm.MainViewModel;
 public class MainFragment extends BaseFragment {
 
     @Inject @ActivityContext Context context;
-    @Inject MainViewModel viewModel;
+    @Inject Lazy<MainViewModel> viewModel;
     @Inject ItemsAdapter adapter;
+    @Inject ViewModelProvider.Factory factory;
 
     private FragmentMainBinding binding;
-
-    @Override
-    public void onCreate(@Nullable final Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Timber.d(viewModel.toString());
-    }
 
     @Nullable
     @Override
@@ -59,8 +55,8 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel.itemsLiveData.observe(this, this::onItemsResource);
-        viewModel.loadItems();
+        viewModel.get().itemsLiveData.observe(this, this::onItemsResource);
+        viewModel.get().loadItems();
     }
 
     private void onItemsResource(final Resource<DataResponse> resource) {
