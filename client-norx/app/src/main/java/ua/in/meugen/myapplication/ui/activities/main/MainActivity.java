@@ -1,9 +1,12 @@
-package ua.in.meugen.myapplication;
+package ua.in.meugen.myapplication.ui.activities.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import ua.in.meugen.myapplication.R;
+import ua.in.meugen.myapplication.ui.activities.base.BaseActivity;
+
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

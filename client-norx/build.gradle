@@ -7,12 +7,37 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.1.1'
         
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+}
+
+ext {
+    def versions = [:]
+    versions.support = '27.1.1'
+    versions.dagger = '2.15'
+
+    def packages = [:]
+    packages.support = 'com.android.support'
+    packages.dagger = 'com.google.dagger'
+
+    def support = [:]
+    support.appcompat = "${packages.support}:appcompat-v7:${versions.support}"
+    support.constraint = "${packages.support}.constraint:constraint-layout:1.1.0"
+
+    def dagger = [:]
+    dagger.core = "${packages.dagger}:dagger:${versions.dagger}"
+    dagger.compiler = "${packages.dagger}:dagger-compiler:${versions.dagger}"
+    dagger.android = [:]
+    dagger.android.core = "${packages.dagger}:dagger-android-support:${versions.dagger}"
+    dagger.android.compiler = "${packages.dagger}:dagger-android-processor:${versions.dagger}"
+
+    libs = [
+            "support": support,
+            "dagger": dagger]
 }
 
 allprojects {
