@@ -9,6 +9,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'SERVER_URL', '"http://restapi.meugen.in.ua"'
     }
     buildTypes {
         release {
@@ -16,14 +18,32 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding.enabled = true
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation libs.support.appcompat
     implementation libs.support.constraint
+    implementation libs.support.recyclerview
 
     implementation libs.dagger.core
     annotationProcessor libs.dagger.compiler
     implementation libs.dagger.android.core
     annotationProcessor libs.dagger.android.compiler
+
+    implementation libs.network.okhttp.core
+    implementation libs.network.okhttp.logger
+    implementation libs.network.retrofit
+    implementation libs.network.gson.core
+    implementation libs.network.gson.converter
+
+    implementation libs.lifecycle.viewmodel
+    implementation libs.lifecycle.livedata
+    implementation libs.lifecycle.extensions
+
+    implementation libs.timber
 }

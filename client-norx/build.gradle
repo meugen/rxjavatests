@@ -19,14 +19,25 @@ ext {
     def versions = [:]
     versions.support = '27.1.1'
     versions.dagger = '2.15'
+    versions.okhttp = '3.10.0'
+    versions.retrofit = '2.4.0'
+    versions.gson = '2.8.2'
+    versions.lifecycle = '1.1.1'
+    versions.timber = '4.7.0'
 
     def packages = [:]
     packages.support = 'com.android.support'
     packages.dagger = 'com.google.dagger'
+    packages.okhttp = 'com.squareup.okhttp3'
+    packages.retrofit = 'com.squareup.retrofit2'
+    packages.gson = 'com.google.code.gson'
+    packages.lifecycle = 'android.arch.lifecycle'
+    packages.timber = 'com.jakewharton.timber'
 
     def support = [:]
     support.appcompat = "${packages.support}:appcompat-v7:${versions.support}"
     support.constraint = "${packages.support}.constraint:constraint-layout:1.1.0"
+    support.recyclerview = "${packages.support}:recyclerview-v7:${versions.support}"
 
     def dagger = [:]
     dagger.core = "${packages.dagger}:dagger:${versions.dagger}"
@@ -35,9 +46,28 @@ ext {
     dagger.android.core = "${packages.dagger}:dagger-android-support:${versions.dagger}"
     dagger.android.compiler = "${packages.dagger}:dagger-android-processor:${versions.dagger}"
 
+    def network = [:]
+    network.okhttp = [:]
+    network.okhttp.core = "${packages.okhttp}:okhttp:${versions.okhttp}"
+    network.okhttp.logger = "${packages.okhttp}:logging-interceptor:${versions.okhttp}"
+    network.retrofit = "${packages.retrofit}:retrofit:${versions.retrofit}"
+    network.gson = [:]
+    network.gson.core = "${packages.gson}:gson:${versions.gson}"
+    network.gson.converter = "${packages.retrofit}:converter-gson:${versions.retrofit}"
+
+    def lifecycle = [:]
+    lifecycle.viewmodel = "${packages.lifecycle}:viewmodel:${versions.lifecycle}"
+    lifecycle.livedata = "${packages.lifecycle}:livedata:${versions.lifecycle}"
+    lifecycle.extensions = "${packages.lifecycle}:extensions:${versions.lifecycle}"
+
+    def timber = "${packages.timber}:timber:${versions.timber}"
+
     libs = [
             "support": support,
-            "dagger": dagger]
+            "dagger": dagger,
+            "network": network,
+            "lifecycle": lifecycle,
+            "timber": timber]
 }
 
 allprojects {
