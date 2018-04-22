@@ -33,6 +33,7 @@ public class ItemsActionApi extends BaseActionApi<Resource<ItemsResponse>, Items
             }
             Timber.d("LOADED ITEMS");
         } catch (IOException e) {
+            Timber.d(e);
             postValue(Resource.error(e));
         }
     }
