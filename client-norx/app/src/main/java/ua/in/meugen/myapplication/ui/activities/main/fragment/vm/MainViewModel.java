@@ -21,7 +21,6 @@ public class MainViewModel extends BaseViewModel {
     @Inject
     MainViewModel() {
         this.itemsLiveData = new MutableLiveData<>();
-        this.actionApiProvider = actionApiProvider;
     }
 
     public void loadItems() {
