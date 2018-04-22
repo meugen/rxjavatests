@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class DataResponse {
+public class ItemsResponse {
 
     @SerializedName("data")
-    public List<String> data;
+    public List<String> items;
 }

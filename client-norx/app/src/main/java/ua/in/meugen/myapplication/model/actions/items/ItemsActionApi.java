@@ -10,9 +10,9 @@ import timber.log.Timber;
 import ua.in.meugen.myapplication.model.actions.BaseActionApi;
 import ua.in.meugen.myapplication.model.network.Resource;
 import ua.in.meugen.myapplication.model.network.ServiceApi;
-import ua.in.meugen.myapplication.model.network.resp.DataResponse;
+import ua.in.meugen.myapplication.model.network.resp.ItemsResponse;
 
-public class ItemsActionApi extends BaseActionApi<Resource<DataResponse>, ItemsRequest> {
+public class ItemsActionApi extends BaseActionApi<Resource<ItemsResponse>, ItemsRequest> {
 
     @Inject ServiceApi serviceApi;
 
@@ -23,8 +23,8 @@ public class ItemsActionApi extends BaseActionApi<Resource<DataResponse>, ItemsR
     protected void internalRun(final ItemsRequest itemsRequest) throws InterruptedException {
         try {
             postValue(Resource.loading());
-            final Response<DataResponse> response = serviceApi
-                    .storageWithDelay(1, TimeUnit.SECONDS.toMillis(10))
+            final Response<ItemsResponse> response = serviceApi
+                    .storageWithDelay(1, TimeUnit.SECONDS.toMillis(5))
                     .execute();
             if (response.isSuccessful()) {
                 postValue(Resource.success(response.body()));

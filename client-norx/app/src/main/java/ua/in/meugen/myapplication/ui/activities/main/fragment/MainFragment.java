@@ -16,7 +16,7 @@ import dagger.Lazy;
 import ua.in.meugen.myapplication.app.di.qualifiers.ActivityContext;
 import ua.in.meugen.myapplication.databinding.FragmentMainBinding;
 import ua.in.meugen.myapplication.model.network.Resource;
-import ua.in.meugen.myapplication.model.network.resp.DataResponse;
+import ua.in.meugen.myapplication.model.network.resp.ItemsResponse;
 import ua.in.meugen.myapplication.ui.activities.base.fragment.BaseFragment;
 import ua.in.meugen.myapplication.ui.activities.main.fragment.adapters.ItemsAdapter;
 import ua.in.meugen.myapplication.ui.activities.main.fragment.vm.MainViewModel;
@@ -59,9 +59,9 @@ public class MainFragment extends BaseFragment {
         viewModel.get().loadItems();
     }
 
-    private void onItemsResource(final Resource<DataResponse> resource) {
+    private void onItemsResource(final Resource<ItemsResponse> resource) {
         if (resource.status == Resource.SUCCESS) {
-            adapter.swapItems(resource.data.data);
+            adapter.swapItems(resource.data.items);
         }
     }
 }

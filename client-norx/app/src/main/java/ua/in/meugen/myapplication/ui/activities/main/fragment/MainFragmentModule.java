@@ -12,7 +12,7 @@ import ua.in.meugen.myapplication.model.actions.AppActionApi;
 import ua.in.meugen.myapplication.model.actions.items.ItemsActionApi;
 import ua.in.meugen.myapplication.model.actions.items.ItemsRequest;
 import ua.in.meugen.myapplication.model.network.Resource;
-import ua.in.meugen.myapplication.model.network.resp.DataResponse;
+import ua.in.meugen.myapplication.model.network.resp.ItemsResponse;
 import ua.in.meugen.myapplication.ui.activities.base.fragment.BaseFragment;
 import ua.in.meugen.myapplication.ui.activities.base.fragment.BaseFragmentModule;
 import ua.in.meugen.myapplication.ui.activities.main.fragment.vm.MainViewModel;
@@ -22,10 +22,6 @@ public abstract class MainFragmentModule {
 
     @Binds @PerFragment
     abstract BaseFragment bindBaseFragment(final MainFragment fragment);
-
-    @Binds @PerFragment
-    abstract AppActionApi<Resource<DataResponse>, ItemsRequest> bindItemsActionApi(
-            final ItemsActionApi api);
 
     @Provides @PerFragment
     static MainViewModel provideMainViewModel(

@@ -18,7 +18,7 @@ buildscript {
 ext {
     def versions = [:]
     versions.support = '27.0.2'
-    versions.dagger = '2.15'
+    versions.dagger = '2.14.1'
     versions.okhttp = '3.10.0'
     versions.retrofit = '2.4.0'
     versions.gson = '2.8.2'
