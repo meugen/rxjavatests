@@ -1,8 +1,10 @@
-package meugeninua.rxjavatests.client;
+package meugeninua.rxjavatests.client.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import meugeninua.rxjavatests.client.R;
 
 public class MainActivity extends AppCompatActivity {
 
